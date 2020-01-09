@@ -18,7 +18,9 @@
         <%= link_to "Home", user_path(current_user.id) %>
       </li>
       <li>Users</li>
-      <li>Books</li>
+      <li>
+        <%= link_to "Books", books_path %>
+      </li>
       <li>logout</li>
     <% else %>
       <li>Home</li>
