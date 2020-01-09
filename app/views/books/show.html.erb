@@ -28,17 +28,18 @@
 </div>
 <div class="book-detail">
 	<div>
+		<h1>Book detail</h1>
 		<table>
 			<tr>
 				<td>投稿者</td>
-				<td><%= @book.title %></td>
-				<td><%= @book.body %></td>
+				<td><%= @books.title %></td>
+				<td><%= @books.body %></td>
 				<td>
-					<%= link_to "Edit", edit_book_path(@book.id) %>
+					<%= link_to "Edit", edit_book_path(@books.id) %>
 				</td>
 				<td>
-					<% if @book.user == current_user %>
-						<%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
+					<% if @books.user == current_user %>
+						<%= link_to "Destroy", book_path(@books), method: :delete, "data-confirm" => "本当に消しますか？" %>
 					<% end %>
 				</td>
 			</tr>
