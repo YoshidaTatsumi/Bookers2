@@ -1,0 +1,51 @@
+<div class="header">
+	<h1>Bookers</h1>
+	<ul>
+	<% if user_signed_in? %>
+		<li>Home</li>
+		<li>Users</li>
+		<li>Books</li>
+		<li>logout</li>
+	<% else %>
+		<li>Home</li>
+		<li>About</li>
+		<li>sign up</li>
+		<li>login</li>
+	<% end %>
+	</ul>
+</div>
+<% if @book.errors.any? %>
+	<h2><%= @book.errors.count %>件のエラーが発生しました</h2>
+	<ul>
+		<% @book.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
+<div class="sidebar">
+	<div class="user">
+		<h1>User info</h1>
+		<img>
+		<p>name:username</p>
+		<p>introduction</p>
+		<p>編集ボタン</p>
+	</div>
+	<div class="new-book">
+		<div>
+			<h1>New Book</h1>
+			<h4>Title</h4>
+			<p>記入欄</p>
+			<h4>Opinion</h4>
+			<p>記入欄</p>
+			<p>Createボタン</p>
+		</div>
+	</div>
+</div>
+<div class="book-detail">
+	<h1>Book detail</h1>
+	<table>
+		<td>投稿者</td>
+		<td>ほんの名前</td>
+		<td>内容</td>
+	</table>
+</div>
