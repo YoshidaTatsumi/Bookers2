@@ -1,0 +1,26 @@
+<div>
+	<%= link_to "edit", edit_user_path(@user.id) %>
+</div>
+
+<main class="clearfix">
+<div class="user-detail">
+	<div>
+		<h1>Books</h1>
+		<div>
+			<table>
+				<%= @books.each do |book| %>
+					<tr>
+						<td>画像</td>
+						<td>
+							<%= link_to book_path(book.id) do %>
+								<%= book.title %>
+							<% end %>
+						</td>
+						<td><%= book.body %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
+</main>
