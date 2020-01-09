@@ -3,14 +3,25 @@
 </div>
 
 <main class="clearfix">
+<div class="sidebar">
+	<div class="user">
+		<h1>User info</h1>
+		<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+		<p>name:username</p>
+		<p>introduction</p>
+		<%= link_to "ユーザー編集", edit_user_path(current_user.id) %>
+	</div>
+</div>
 <div class="user-detail">
 	<div>
 		<h1>Books</h1>
 		<div>
 			<table>
-				<%= @books.each do |book| %>
+				<% @books.each do |book| %>
 					<tr>
-						<td>画像</td>
+						<td>
+							<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %>
+						</td>
 						<td>
 							<%= link_to book_path(book.id) do %>
 								<%= book.title %>
