@@ -1,12 +1,4 @@
 <main class="clearfix">
-<% if @book.errors.any? %>
-	<h2><%= @book.errors.count %>件のエラーが発生しました</h2>
-	<ul>
-		<% @book.errors.full_messages.each do |message| %>
-			<li><%= message %></li>
-		<% end %>
-	</ul>
-<% end %>
 <div class="sidebar">
 	<div class="user">
 		<h1>User info</h1>
@@ -35,26 +27,20 @@
 	</div>
 </div>
 <div class="book-detail">
-	<h1>Books</h1>
-	<table>
-		<tr>
-			<th colspan="1"></th>
-			<th>Title</th>
-			<th>Opinion</th>
-		</tr>
-		<% @books.each do |book| %>
+	<div>
+		<table>
 			<tr>
 				<td>投稿者</td>
-				<td><%= link_to book_path(book.id) do %>
-					<%= book.title %>
+				<td><%= @book.title %></td>
+				<td><%= @book.body %></td>
+				<td>edit</td>
+				<td>
+					<% if @book.user == current_user %>
+						<%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
 					<% end %>
 				</td>
-				<td><%= book.body %></td>
 			</tr>
-		<% end %>
-	</table>
+		</table>
+	</div>
 </div>
 </main>
-
-
-

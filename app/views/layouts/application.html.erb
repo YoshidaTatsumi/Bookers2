@@ -10,6 +10,27 @@
   </head>
 
   <body>
+  <header>
+    <h1>Bookers</h1>
+    <ul>
+    <% if user_signed_in? %>
+      <li>Home</li>
+      <li>Users</li>
+      <li>Books</li>
+      <li>logout</li>
+    <% else %>
+      <li>Home</li>
+      <li>About</li>
+      <li>sign up</li>
+      <li>login</li>
+    <% end %>
+    </ul>
+  </header>
+
     <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>
