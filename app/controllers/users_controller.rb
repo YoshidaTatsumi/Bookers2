@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   def top
   end
+  def about
+  end
   def index
     @users = User.all
     @user = current_user

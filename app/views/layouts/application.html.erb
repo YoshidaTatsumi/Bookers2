@@ -27,10 +27,18 @@
         <%= link_to "logout", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
-      <li>Home</li>
-      <li>About</li>
-      <li>sign up</li>
-      <li>login</li>
+      <li>
+        <%= link_to "Home", root_path %>
+      </li>
+      <li>
+        <%= link_to "About", home_about_path %>
+      </li>
+      <li>
+        <%= link_to "sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "sign in", new_user_session_path %>
+      </li>
     <% end %>
     </ul>
   </header>
