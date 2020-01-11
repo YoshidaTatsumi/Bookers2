@@ -10,9 +10,9 @@
 <div class="sidebar">
 	<div class="user">
 		<h1>User info</h1>
-		<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-		<p>name:username</p>
-		<p>introduction</p>
+		<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+		<%= current_user.name %>
+		<%= current_user.introduction %>
 		<%= link_to "ユーザー編集", edit_user_path(current_user.id) %>
 	</div>
 	<div class="new-book">
@@ -44,7 +44,9 @@
 		</tr>
 		<% @books.each do |book| %>
 			<tr>
-				<td>投稿者</td>
+				<td>
+					<%= attachment_image_tag book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+				</td>
 				<td><%= link_to book_path(book.id) do %>
 					<%= book.title %>
 					<% end %>

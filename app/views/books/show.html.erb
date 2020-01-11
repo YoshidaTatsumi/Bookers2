@@ -2,10 +2,10 @@
 <div class="sidebar">
 	<div class="user">
 		<h1>User info</h1>
-		<img>
-		<p>name:username</p>
-		<p>introduction</p>
-		<p>編集ボタン</p>
+		<%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+		<%= current_user.name %>
+		<%= current_user.introduction %>
+		<%= link_to "ユーザー編集", edit_user_path(current_user.id) %>
 	</div>
 	<div class="new-book">
 		<h2>New Book</h2>
