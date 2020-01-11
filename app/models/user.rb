@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   attachment :profile_image
   validates :name, presence: true, length: {in: 2..20}, uniqueness: true
+  validates :introduction, length: {maximum: 50}
 
   #usernameを利用してログインするようにオーバーライド
   def self.find_first_by_auth_conditions(warden_conditions)
