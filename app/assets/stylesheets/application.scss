@@ -22,6 +22,10 @@
 	box-sizing: border-box;
 }
 
+a:visited {
+	color: #666;
+}
+
 header {
 	color: white;
 }
@@ -35,9 +39,12 @@ header span {
 	margin-bottom: 60px;
 }
 
-main {
-	marign: 0 auto;
-	padding: 0 15px;
+.error-message {
+	color: red;
+}
+
+.flash {
+	margin-top: 5px;
 }
 
 .body {
@@ -64,18 +71,6 @@ main {
 	font-size: 12px;
 }
 
-.field {
+.field, .actions {
 	margin-top :10px;
 }
-
-.sidebar {
-	float: left;
-}
-
-.book-detail {
-	float: left;
-}
-.user-detail {
-	float: left;
-}
-

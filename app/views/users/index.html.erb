@@ -1,13 +1,5 @@
 <div class="body">
 	<div class="container">
-		<% if @book.errors.any? %>
-			<h2><%= @book.errors.count %>件のエラーが発生しました</h2>
-			<ul>
-				<% @book.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		<% end %>
 		<div class="row">
 			<div class="col-xs-3">
 				<h2>User info</h2>
@@ -27,7 +19,7 @@
 					<%= link_to "", edit_user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 				</div>
 
-				<h2>New Book</h2>
+				<h2>New book</h2>
 				<%= form_for(@book, url: books_path) do |f| %>
 					<div class="field row">
 						<label>Title</label>
@@ -55,7 +47,10 @@
 					<tbody>
 						<% @users.each do |user| %>
 							<tr>
-								<td><%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></td>
+								<td>
+									<%= link_to user_path(user.id) do %>
+										<%= attachment_image_tag user, :profile_image, :fill, 40, 40, format: 'jpeg', fallback: "no_image.jpg", size:'40x40' %></td>
+									<% end %>
 								<td><%= user.name %></td>
 								<td><%= link_to "Show", user_path(user) %></td>
 							</tr>

@@ -1,5 +1,29 @@
-<div class="top">
-	<h1>welcome to Bookers !!</h1>
-	<%= link_to "Log in", new_user_session_path %>
-	<%= link_to "Sign up", new_user_registration_path %>
+<div class="body">
+	<div class="container">
+		<% if flash[:notice] %>
+			<div class="flash">
+				<%= flash[:notice] %>
+			</div>
+		<% end %>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3">
+				<h1>welcome to <span class="glyphicon glyphicon-book"></span>Bookers !!</h1>
+				<p>
+					In <span class="glyphicon glyphicon-book"></span><strong>Bookers,</strong><br>
+					you can share and exchange your opinions , inpressons , and emotions<br>
+					about various books!
+				</p>
+				<div class="row">
+					<%= link_to "Log in", new_user_session_path, class:"col-xs-10 col-xs-offset-1 btn btn-info" %>
+					<div class="col-xs-1"></div>
+				</div>
+				<div class="row">
+					<%= link_to "Sign up", new_user_registration_path, class:"col-xs-10 col-xs-offset-1 btn btn-success" %>
+					<div class="col-xs-1"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+			</div>
+		</div>
+	</div>
 </div>

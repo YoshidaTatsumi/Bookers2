@@ -2,7 +2,9 @@
 	<div class="container">
 		<h2>User info</h2>
 		<% if @user.errors.any? %>
-			<h2><%= @user.errors.count %>件のエラーが発生しました</h2>
+			<h2><%= @user.errors.count %>
+				 errors prohibited this obj from being saved:
+			</h2>
 			<ul>
 				<% @user.errors.full_messages.each do |message| %>
 					<li><%= message %></li>
