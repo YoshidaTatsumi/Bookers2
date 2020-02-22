@@ -18,10 +18,10 @@ class BookCommentsController < ApplicationController
 		book = Book.find(params[:book_id])
 		comment = current_user.book_comments.find_by(book_id: book.id)
 		if current_user.id != comment.user_id
-			redirect_to book_path(book)
+			redirect_to request.referer
 		end
 		comment.destroy
-        redirect_back(fallback_location: root_path)
+        redirect_to request.referer
 	end
 
 	private
