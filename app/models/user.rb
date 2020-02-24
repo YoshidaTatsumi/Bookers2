@@ -23,6 +23,31 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: {in: 2..20}
   validates :introduction, length: {maximum: 50}
+  validates :postal_code, presence: true
+  validates :address_city, presence: true
+  validates :prefecture_code, presence: true
+  validates :address_street, presence: true
+
+  def address
+    prefecture.name + address_city
+  end
+
+
+  geocoded_by :address_city
+  after_validation :geocode
+  # これで、モデル登録時と住所(address)変更時にgeocoderにより、緯度・経度のデータが登録・更新される。
+
+  include JpPrefecture
+  jp_prefecture :prefecture_code
+
+  #prefecture_codeからprefecture_nameに変換する
+  def prefecture_name
+    JpPrefecture::Prefecture.find(code: prefecture_code).try(:name)
+  end
+
+  def prefecture_name=(prefecture_name)
+    self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
+  end
 
   # ユーザーをフォローする
   def follow(user_id)

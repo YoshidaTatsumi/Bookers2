@@ -19,5 +19,41 @@
 				<%= render 'books/index', books: @books%>
 			</div>
 		</div>
+
+		<% if current_user.id == @user.id %>
+			<h2>Your MAP</h2>
+			<div id='map' style="height: 400px;"></div>
+		<% end %>
 	</div>
 </div>
+
+
+<script>
+	function initMap(){
+		var test = { lat: <%= @user.latitude %>, lng: <%= @user.longitude %> };
+		var map = new google.maps.Map(document.getElementById('map'), {
+	      zoom: 15,
+	      center: test
+	    });
+		var transitLayer = new google.maps.TransitLayer();
+	    transitLayer.setMap(map);
+
+	    var contentString = "住所：<%=@user.address %> ";
+	    var infowindow = new google.maps.InfoWindow({
+	      content: contentString
+	    });
+
+	    // マーカー生成関数
+	    var marker = new google.maps.Marker({
+	      position:test,
+	      map: map,
+	      title: contentString
+	    });
+
+	    marker.addListener('click', function() {
+	      infowindow.open(map, marker);
+	    });
+	}
+</script>
+
+<script src="http://maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_API_KEY']%>&callback=initMap" async defer></script>

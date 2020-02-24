@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <script src="https://kit.fontawesome.com/e298a88adc.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -39,7 +40,7 @@
               <%= link_to " About", home_about_path, class:"glyphicon glyphicon-link" %>
             </li>
             <li>
-              <%= link_to " Sign up", new_user_registration_path, class:"glyphicon glyphicon-edit" %>
+              <%= link_to " Sign up", new_user_registration_path, class:"glyphicon glyphicon-edit", data: {"turbolinks" => false} %>
             </li>
             <li>
               <%= link_to " login", new_user_session_path, class:"glyphicon glyphicon-log-in" %>

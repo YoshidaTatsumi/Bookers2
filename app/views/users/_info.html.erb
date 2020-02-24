@@ -28,7 +28,7 @@
 </table>
 <% if current_user.id == user.id %>
 	<div class="row">
-		<%= link_to "", edit_user_path(user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+		<%= link_to "", edit_user_path(user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench", data: {"turbolinks" => false} %>
 	</div>
 <% else %>
 	<div class="row">
