@@ -18,7 +18,10 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+set :output, 'log/crontab.log'
+set :environment, :development
+env :PATH, ENV['PATH']
 
-every 1.day, :at => '4:30 am' do
-  command "DailyMailer.send_when_create.deliver_now"
+every 1.day do
+  runner "DailyMailer.send_when_create.deliver_now"
 end
