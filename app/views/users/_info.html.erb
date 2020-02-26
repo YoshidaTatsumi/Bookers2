@@ -38,4 +38,5 @@
 			<%= link_to "フォローする", user_relationships_path(user.id), method: :POST, class: "col-xs-8 col-xs-offset-2 btn btn-success" %>
 		<% end %>
 	</div>
+	<%= link_to "チャットを始める", chat_path(user.id) %>
 <% end %>

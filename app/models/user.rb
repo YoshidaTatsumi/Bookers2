@@ -19,6 +19,10 @@ class User < ApplicationRecord
   # 自分をフォローしている人
   has_many :follower_user, through: :passive_relationships, source: :follower
 
+  has_many :chats
+  has_many :user_rooms
+  has_many :rooms, through: :user_rooms
+
   attachment :profile_image
 
   validates :name, presence: true, length: {in: 2..20}
