@@ -73,3 +73,4 @@ gem 'pry-byebug'
 gem 'jp_prefecture'
 gem 'dotenv-rails'
 gem 'geocoder'
+gem 'whenever', :require => false
